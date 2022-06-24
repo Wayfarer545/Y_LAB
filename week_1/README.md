@@ -10,18 +10,6 @@ url = "http://github.com/carbonfive/raygun" -> domain name = "github"
 url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
 url = "https://www.cnet.com"                -> domain name = "cnet"
 ```
-Основа:
-```python
-def domain_name(url):
-  return
-```
-Для проверки:
-```python
-assert domain_name("http://google.com") == "google"
-assert domain_name("http://google.co.jp") == "google"
-assert domain_name("www.xakep.ru") == "xakep"
-assert domain_name("https://youtube.com") == "youtube"
-```
 ---
 Задача №2. Секция статьи "Задача №2."    
 Написать метод int32_to_ip, который принимает на вход 32-битное целое число    
@@ -30,17 +18,6 @@ assert domain_name("https://youtube.com") == "youtube"
 2149583361 -> "128.32.10.1"
 32         -> "0.0.0.32"
 0          -> "0.0.0.0"
-```
-Основа:
-```python
-def int32_to_ip(int32):
-  return
-```
-Для проверки:
-```python
-assert int32_to_ip(2154959208) == "128.114.17.104"
-assert int32_to_ip(0) == "0.0.0.0"
-assert int32_to_ip(2149583361) == "128.32.10.1"
 ```
 ---
 Задача №3. Секция статьи "Задача №3."  
@@ -56,20 +33,6 @@ zeros(6) = 1
 
 zeros(12) = 2
 # 12! = 479001600 --> 2 trailing zeros
-```
-Основа:
-```python
-def zeros(n):
-    return 0
-```
-Подсказка: вы не должны вычислять факториал.  
-Найдите другой способ найти количество нулей.  
-
-Для проверки:  
-```python
-assert zeros(0) == 0
-assert zeros(6) == 1
-assert zeros(30) == 7
 ```
 ---
 Задача №4. Секция статьи "Задача №4."  
@@ -95,23 +58,6 @@ b---anana
 -ba--nana
 -b--anana
 ```
-Основа:
-```python
-def bananas(s) -> set:
-    result = set()
-    # Your code here!
-    return result
-```
-Для проверки:
-```python
-assert bananas("banann") == set()
-assert bananas("banana") == {"banana"}
-assert bananas("bbananana") == {"b-an--ana", "-banana--", "-b--anana", "b-a--nana", "-banan--a",
-                     "b-ana--na", "b---anana", "-bana--na", "-ba--nana", "b-anan--a",
-                     "-ban--ana", "b-anana--"}
-assert bananas("bananaaa") == {"banan-a-", "banana--", "banan--a"}
-assert bananas("bananana") == {"ban--ana", "ba--nana", "bana--na", "b--anana", "banana--", "banan--a"}
-```
 ---
 Задача №5. Секция статьи "Задача №5."  
 Написать метод count_find_num, который принимает на вход список простых множителей (primesL) и целое число,  
@@ -133,32 +79,4 @@ ___________________________________________________________
 primesL = [2, 5, 7]  
 limit = 500  
 count_find_num(primesL, val) == [5, 490]
-```
-Основа:
-```python
-def count_find_num(primesL, limit):
-    # your code here
-    return []
-```
-Для проверки:
-```python
-primesL = [2, 3]
-limit = 200
-assert count_find_num(primesL, limit) == [13, 192]
-
-primesL = [2, 5]
-limit = 200
-assert count_find_num(primesL, limit) == [8, 200]
-
-primesL = [2, 3, 5]
-limit = 500
-assert count_find_num(primesL, limit) == [12, 480]
-
-primesL = [2, 3, 5]
-limit = 1000
-assert count_find_num(primesL, limit) == [19, 960]
-
-primesL = [2, 3, 47]
-limit = 200
-assert count_find_num(primesL, limit) == []
 ```

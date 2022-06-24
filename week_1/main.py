@@ -14,22 +14,11 @@ def domain_name(url: str) -> str:
         domain = raw[1]
     return domain
 
-assert domain_name("http://google.com") == "google"
-assert domain_name("http://google.co.jp") == "google"
-assert domain_name("www.xakep.ru") == "xakep"
-assert domain_name("https://youtube.com") == "youtube"
-
-
 ## второе задание
 def int32_to_ip(int32: int) -> str:
     return str(IPv4Address(int32))
 
-assert int32_to_ip(2154959208) == "128.114.17.104"
-assert int32_to_ip(0) == "0.0.0.0"
-assert int32_to_ip(2149583361) == "128.32.10.1"
-
-
-## третьео задание
+## третье задание
 def zeros(n: int) -> int:
     if n > 0:
         k_max = math.log(n, 5)
@@ -39,11 +28,6 @@ def zeros(n: int) -> int:
     else:
         z = 0
     return int(z)
-
-assert zeros(0) == 0
-assert zeros(6) == 1
-assert zeros(30) == 7
-
 
 ## четвёртое задание
 def bananas(s: str) -> set:
@@ -59,15 +43,6 @@ def bananas(s: str) -> set:
             if match.replace('-', '') == 'banana':
                 result.add(match)
     return result
-
-assert bananas("banann") == set()
-assert bananas("banana") == {"banana"}
-assert bananas("bbananana") == {"b-an--ana", "-banana--", "-b--anana", "b-a--nana", "-banan--a",
-                                "b-ana--na", "b---anana", "-bana--na", "-ba--nana", "b-anan--a",
-                                "-ban--ana", "b-anana--"}
-assert bananas("bananaaa") == {"banan-a-", "banana--", "banan--a"}
-assert bananas("bananana") == {"ban--ana", "ba--nana", "bana--na", "b--anana", "banana--", "banan--a"}
-
 
 ## пятое задание
 def count_find_num(primesL: list, limit: int) -> list:
@@ -92,28 +67,56 @@ def count_find_num(primesL: list, limit: int) -> list:
     else:
         return []
 
-primesL = [2, 3]
-limit = 200
-assert count_find_num(primesL, limit) == [13, 192]
+## тесты
+def first_test():
+    assert domain_name("http://google.com") == "google"
+    assert domain_name("http://google.co.jp") == "google"
+    assert domain_name("www.xakep.ru") == "xakep"
+    assert domain_name("https://youtube.com") == "youtube"
 
-primesL = [2, 5]
-limit = 200
-assert count_find_num(primesL, limit) == [8, 200]
+def second_test():
+    assert int32_to_ip(2154959208) == "128.114.17.104"
+    assert int32_to_ip(0) == "0.0.0.0"
+    assert int32_to_ip(2149583361) == "128.32.10.1"
 
-primesL = [2, 3, 5]
-limit = 500
-assert count_find_num(primesL, limit) == [12, 480]
+def third_test():
+    assert zeros(0) == 0
+    assert zeros(6) == 1
+    assert zeros(30) == 7
 
-primesL = [2, 3, 5]
-limit = 1000
-assert count_find_num(primesL, limit) == [19, 960]
+def fourth_test():
+    assert bananas("banann") == set()
+    assert bananas("banana") == {"banana"}
+    assert bananas("bbananana") == {"b-an--ana", "-banana--", "-b--anana", "b-a--nana", "-banan--a",
+                                    "b-ana--na", "b---anana", "-bana--na", "-ba--nana", "b-anan--a",
+                                    "-ban--ana", "b-anana--"}
+    assert bananas("bananaaa") == {"banan-a-", "banana--", "banan--a"}
+    assert bananas("bananana") == {"ban--ana", "ba--nana", "bana--na", "b--anana", "banana--", "banan--a"}
 
-primesL = [2, 3, 47]
-limit = 200
-assert count_find_num(primesL, limit) == []
+def fifth_test():
+    primesL = [2, 3]
+    limit = 200
+    assert count_find_num(primesL, limit) == [13, 192]
 
+    primesL = [2, 5]
+    limit = 200
+    assert count_find_num(primesL, limit) == [8, 200]
 
+    primesL = [2, 3, 5]
+    limit = 500
+    assert count_find_num(primesL, limit) == [12, 480]
 
+    primesL = [2, 3, 5]
+    limit = 1000
+    assert count_find_num(primesL, limit) == [19, 960]
 
+    primesL = [2, 3, 47]
+    limit = 200
+    assert count_find_num(primesL, limit) == []
 
-
+if __name__ == "__main__":
+    first_test()
+    second_test()
+    third_test()
+    fourth_test()
+    fifth_test()
