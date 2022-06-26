@@ -51,7 +51,7 @@ def count_find_num(primesL: list, limit: int) -> list:
     for n in range(2, limit + 1):
         divisor = 2
         local_list = []
-        while divisor ** 2 <= n:
+        while divisor <= math.sqrt(n):
             if n % divisor == 0:
                 n //= divisor
                 local_list.append(divisor)
