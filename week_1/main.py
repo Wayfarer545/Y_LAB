@@ -3,15 +3,21 @@ import math
 import copy
 from ipaddress import IPv4Address
 
+from datetime import datetime
 
 ## первое задание
 def domain_name(url: str) -> str:
     raw = url.split('.')
-    if raw[0] == "www":
+    if raw[0].startswith("www"):
         domain = raw[1]
+    elif raw[0].startswith("http"):
+        if raw[0].endswith("www"):
+            domain = raw[1]
+        else:
+            raw = raw[0].split('//')
+            domain = raw[1]
     else:
-        raw = raw[0].split('//')
-        domain = raw[1]
+        domain = raw[0]
     return domain
 
 ## второе задание
@@ -19,15 +25,14 @@ def int32_to_ip(int32: int) -> str:
     return str(IPv4Address(int32))
 
 ## третье задание
-def zeros(n: int) -> int:
-    if n > 0:
-        k_max = math.log(n, 5)
-        z = 0
-        for k in range(1, n + 1):
-            z += n / (5 ** k)
-    else:
-        z = 0
-    return int(z)
+def zeros(n) -> int:
+    def zeros(n: int) -> int:
+        zeros = 0
+        expo = 5
+        while n >= i:
+            zeros += n // expo
+            expo *= 5
+        return zeros
 
 ## четвёртое задание
 def bananas(s: str) -> set:
@@ -115,8 +120,11 @@ def fifth_test():
     assert count_find_num(primesL, limit) == []
 
 if __name__ == "__main__":
-    first_test()
-    second_test()
-    third_test()
-    fourth_test()
-    fifth_test()
+    start = datetime.now()
+    print(zeros(1000))
+    print(datetime.now() - start)
+    # first_test()
+    # second_test()
+    # third_test()
+    # fourth_test()
+    # fifth_test()
