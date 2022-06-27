@@ -1,4 +1,5 @@
 import itertools
+from itertools import combinations
 import math
 import copy
 from ipaddress import IPv4Address
@@ -37,16 +38,13 @@ def zeros(n) -> int:
 ## четвёртое задание
 def bananas(s: str) -> set:
     result = set()
-    if len(s) >= 6:
-        mask = "111111" + ("0" * (len(s) - 6))
-        for i in itertools.permutations(mask):
-            sample = list(s)
-            for j, k in enumerate(i):
-                if k == "0":
-                    sample[j] = "-"
-            match = ''.join(sample)
-            if match.replace('-', '') == 'banana':
-                result.add(match)
+    for combination in combinations(range(len(s)), len(s)-6):
+        raw = list(s)
+        for i in combination:
+            raw[i] = '-'
+        raw = ''.join(raw)
+        if raw.replace('-', '') == 'banana':
+            result.add(raw)
     return result
 
 ## пятое задание
@@ -120,11 +118,10 @@ def fifth_test():
     assert count_find_num(primesL, limit) == []
 
 if __name__ == "__main__":
-    start = datetime.now()
-    print(zeros(1000))
-    print(datetime.now() - start)
-    # first_test()
-    # second_test()
-    # third_test()
-    # fourth_test()
-    # fifth_test()
+    # start = datetime.now()
+    # print(datetime.now() - start)
+    first_test()
+    second_test()
+    third_test()
+    fourth_test()
+    fifth_test()
