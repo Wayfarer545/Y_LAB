@@ -26,14 +26,13 @@ def int32_to_ip(int32: int) -> str:
     return str(IPv4Address(int32))
 
 ## третье задание
-def zeros(n) -> int:
-    def zeros(n: int) -> int:
-        zeros = 0
-        expo = 5
-        while n >= i:
-            zeros += n // expo
-            expo *= 5
-        return zeros
+def zeros(n: int) -> int:
+    zeros = 0
+    expo = 5
+    while n >= expo:
+        zeros += n // expo
+        expo *= 5
+    return zeros
 
 ## четвёртое задание
 def bananas(s: str) -> set:
@@ -49,26 +48,22 @@ def bananas(s: str) -> set:
 
 ## пятое задание
 def count_find_num(primesL: list, limit: int) -> list:
-    counter = 0
-    largest = 0
-    for n in range(2, limit + 1):
-        divisor = 2
-        local_list = []
-        while divisor <= math.sqrt(n):
-            if n % divisor == 0:
-                n //= divisor
-                local_list.append(divisor)
-            else:
-                divisor += 1
-        if n != 1:
-            local_list.append(n)
-        if set(local_list) == set(primesL):
-            counter += 1
-            largest = math.prod(local_list)
-    if counter != 0:
-        return [counter, largest]
-    else:
-        return []
+	result_set = []
+	min_div = math.prod(primesL)
+	if min_div > limit:
+		return []
+	result_set.append(min_div)
+	for num in primesL:
+		result = 1
+		while result <= limit and num > 1:
+			for item in result_set:
+				result = item * num
+				if result <= limit:
+					result_set.append(result)
+	if len(result_set) > 0:
+		return [len(result_set), max(result_set)]
+	else:
+		return []
 
 ## тесты
 def first_test():
@@ -118,8 +113,6 @@ def fifth_test():
     assert count_find_num(primesL, limit) == []
 
 if __name__ == "__main__":
-    # start = datetime.now()
-    # print(datetime.now() - start)
     first_test()
     second_test()
     third_test()
