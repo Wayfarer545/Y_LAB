@@ -1,5 +1,4 @@
 import random
-import time
 import tkinter as tk
 from tkinter import Tk, messagebox, Button
 import numpy as np
