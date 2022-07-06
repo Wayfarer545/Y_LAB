@@ -1,10 +1,9 @@
 from math import sqrt, pow
-from python_tsp.exact import solve_tsp_dynamic_programming
 import numpy as np
-from itertools import combinations, permutations
+from itertools import permutations
 
 # создание матрицы расстояний между точками
-def distance_calculator(points: list(tuple)) -> np.array:
+def distance_calculator(points: list[tuple]) -> np.array:
 	matrix = []
 	size = len(points)
 	for origin in points:
@@ -15,7 +14,7 @@ def distance_calculator(points: list(tuple)) -> np.array:
 	return matrix
 
 # bruteforce перебор дистанций с поиском минимальной
-def pathfinder_custom(points: list(tuple), data: np.array) -> list(tuple, np.float):
+def pathfinder_custom(points: list[tuple], data: np.array) -> list[tuple, float]:
 	shortest_solution = [(), 5 ** 100]
 	for i in permutations(range(1, len(points))):
 		index_list = (0, *(i), 0)
@@ -27,7 +26,7 @@ def pathfinder_custom(points: list(tuple), data: np.array) -> list(tuple, np.flo
 	return shortest_solution
 
 # хаб сборщик выходных данных
-def main(points: list(tuple)) -> str:
+def main(points: list[tuple]) -> str:
 	post_office = list(points[0])
 	points.append(tuple(post_office))
 	data = distance_calculator(points)
