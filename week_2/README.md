@@ -9,10 +9,10 @@ Python 3.10
 Проверку работоспособности можно осуществить непосредственным исполнением скрпита  
 или же импортом метода pathfinder c передачей в него в качестве аргумента списка координат точек.
 ```python
-from tsp import pathfinder
+from tsp import main
 
 points = [(1, 3), (2, 7), ...]
-shortest_way = pathfinder(points)
+shortest_way = main(points)
 print(shortest_way)
 ```
 ---
