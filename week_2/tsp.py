@@ -4,6 +4,8 @@ from itertools import permutations
 
 # создание матрицы расстояний между точками
 def distance_calculator(points: list[tuple]) -> np.array:
+	post_office = list(points[0])
+	points.append(tuple(post_office))
 	matrix = []
 	size = len(points)
 	for origin in points:
@@ -15,30 +17,27 @@ def distance_calculator(points: list[tuple]) -> np.array:
 
 # bruteforce перебор дистанций с поиском минимальной
 def pathfinder_custom(points: list[tuple], data: np.array) -> list[tuple, float]:
-	shortest_solution = [(), 5 ** 100]
+	shortest_solution = [(), 0]
 	for i in permutations(range(1, len(points))):
 		index_list = (0, *(i), 0)
 		distance = 0
 		for k, i in enumerate(index_list[1 : ]):
 			distance += data[index_list[k], i]
-		if distance < shortest_solution[1]:
+		if distance < shortest_solution[1] or shortest_solution[1] == 0:
 			shortest_solution = [index_list, distance]
 	return shortest_solution
 
 # хаб сборщик выходных данных
 def main(points: list[tuple]) -> str:
-	post_office = list(points[0])
-	points.append(tuple(post_office))
 	data = distance_calculator(points)
 	path, distance = pathfinder_custom(points, data)
 	output = str(points[0])
 	passed = 0
-	for i in path[1:]:
+	for i in path[1:-1]:
 		passed += data[path[i - 1], path[i]]
 		output += f' -> {points[path[i]]}{[passed]}'
 
 	return f'{output} = {passed}'
-
 
 
 
