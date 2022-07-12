@@ -13,6 +13,7 @@ def distance_calculator(points: list[tuple]) -> np.array:
 			distance = sqrt(pow(origin[0] - destination[0], 2) + pow(origin[1] - destination[1], 2))
 			matrix.append(distance)
 	matrix = np.array(matrix).reshape(size, size)
+	print(matrix)
 	return matrix
 
 # bruteforce перебор дистанций с поиском минимальной
@@ -25,6 +26,7 @@ def pathfinder_custom(points: list[tuple], data: np.array) -> list[tuple, float]
 			distance += data[index_list[k], i]
 		if distance < shortest_solution[1] or shortest_solution[1] == 0:
 			shortest_solution = [index_list, distance]
+	print(shortest_solution)
 	return shortest_solution
 
 # хаб сборщик выходных данных
@@ -33,8 +35,8 @@ def main(points: list[tuple]) -> str:
 	path, distance = pathfinder_custom(points, data)
 	output = str(points[0])
 	passed = 0
-	for i in path[1:-1]:
-		passed += data[path[i - 1], path[i]]
+	for k, i in enumerate(path[1:-1]):
+		passed += data[path[k], path[i]]
 		output += f' -> {points[path[i]]}{[passed]}'
 
 	return f'{output} = {passed}'
