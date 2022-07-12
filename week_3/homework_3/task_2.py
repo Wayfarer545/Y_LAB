@@ -20,14 +20,14 @@ def delay_runner(
 				      f'Результат декорируемой функции = {result}.')
 				iter_count += 1
 				time.sleep(t)
-				t *= pow(2, factor)
+				t *= factor
 				if t > border_sleep_time:
 					t = border_sleep_time
 			print('Конец работы')
 		return wrapper
 	return func_interceptor
 
-@delay_runner(call_count=5, start_sleep_time=0.5, factor=2, border_sleep_time=5)
+@delay_runner(call_count=5, start_sleep_time=1, factor=2, border_sleep_time=17)
 def sample_func():
 	return 666
 
