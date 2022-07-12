@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod, abstractproperty
 
+
 class Place(ABC):
     name: str
 
