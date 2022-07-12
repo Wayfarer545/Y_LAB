@@ -15,7 +15,6 @@ class SuperHero:
         Attack.ultimate(self, self.name)
 
 
-
 class Superman(SuperHero):
     def __init__(self):
         super(Superman, self).__init__('Clark Kent', True)
