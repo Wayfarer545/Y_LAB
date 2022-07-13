@@ -12,7 +12,7 @@ def decorate_em(func):
         Необходимо указать хост и порт сервера.
         """
         with Redis(
-                host='192.168.31.100',
+                host='127.0.0.1',
                 port=6379
                 ) as connection:
             stored_kwargs = connection.get('kwargs')
