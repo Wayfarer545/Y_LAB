@@ -1,7 +1,12 @@
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod
 
 
 class Place(ABC):
+    """
+    Модель класса для создания городов.
+
+    Присутствует обязательный метод поиска противника.
+    """
     name: str
 
     @abstractmethod

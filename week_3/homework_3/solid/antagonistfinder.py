@@ -1,6 +1,6 @@
-from places import Kostroma, Tokyo
+from places import Place
 
 
 class AntagonistFinder:
-    def get_antagonist(self, place):
+    def get_antagonist(self, place: Place):
         place.get_enemy()

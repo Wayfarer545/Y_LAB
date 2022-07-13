@@ -1,15 +1,25 @@
-class Attack:
-	def __init__(self, name):
-		self.name = name
+from abc import ABC, abstractmethod
 
-	@staticmethod
-	def fire_a_gun():
+
+class Attack(ABC):
+	heroes_ultimate = {
+		'Clark Kent': 'Wzzzuuuup!',
+	}
+
+	@abstractmethod
+	def attack(self):
+		pass
+
+	def super_attack(self, name: str):
+		print(self.heroes_ultimate[name])
+
+
+class Shotgun(Attack):
+	def attack(self):
 		print('PIU PIU')
 
-	@staticmethod
-	def roundhouse_kick():
+
+class Kick(Attack):
+	def attack(self):
 		print('Bump')
 
-	def ultimate(self, name):
-		if name == 'Clark Kent':
-			print('Wzzzuuuup!')

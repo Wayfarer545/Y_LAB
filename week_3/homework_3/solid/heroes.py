@@ -1,5 +1,5 @@
 from antagonistfinder import AntagonistFinder
-from weapons import Attack
+from weapons import Shotgun, Kick
 
 
 class SuperHero:
@@ -11,21 +11,12 @@ class SuperHero:
     def find(self, place):
         self.finder.get_antagonist(place)
 
-    def ultimate(self):
-        Attack.ultimate(self, self.name)
 
-
-class Superman(SuperHero):
+class Superman(Kick, SuperHero):
     def __init__(self):
         super(Superman, self).__init__('Clark Kent', True)
 
-    def attack(self):
-        Attack.roundhouse_kick()
 
-
-class Norris(SuperHero):
+class Norris(Shotgun, SuperHero):
     def __init__(self):
         super(Norris, self).__init__('Chack Norris', False)
-
-    def attack(self):
-        Attack.fire_a_gun()

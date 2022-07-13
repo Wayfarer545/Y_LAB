@@ -1,7 +1,12 @@
 from typing import Iterable, Generator, Optional
 
+
 class CyclicIterator:
 	def __init__(self, objects: Iterable):
+		"""
+		Инициализация итератора с проверкой входных данных
+		на итерируемость.
+		"""
 		self.objects = None
 		try:
 			iter(objects)
@@ -19,7 +24,7 @@ class CyclicIterator:
 		return next(self.sample_generator)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	cyclic_iterator = CyclicIterator(range(3))
 	for i in cyclic_iterator:
 		print(i)

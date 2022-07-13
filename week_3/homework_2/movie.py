@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime, date, timedelta
+from datetime import datetime, timedelta
 from typing import Generator, List, Tuple
 
 
@@ -9,6 +9,10 @@ class Movie:
 	dates: List[Tuple[datetime, datetime]]
 
 	def schedule(self) -> Generator[datetime, None, None]:
+		"""
+		Инициализация генератора дат по всем
+		входным диапазонам.
+		"""
 		for period in self.dates:
 			premier_day, closing_day = period
 			delta = closing_day - premier_day
@@ -17,7 +21,7 @@ class Movie:
 				yield show_day
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	m = Movie('sw', [
 		(datetime(2020, 1, 1), datetime(2020, 1, 7)),
 		(datetime(2020, 1, 15), datetime(2020, 2, 7))

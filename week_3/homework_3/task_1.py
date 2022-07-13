@@ -6,8 +6,13 @@ from redis import Redis
 def decorate_em(func):
     @wraps(func)
     def wrapper(**kwargs) -> int:
+        """
+        Декоратор использует редис в качестве кэша для значений
+        именованных аргументов и результата работы функции.
+        Необходимо указать хост и порт сервера.
+        """
         with Redis(
-                host="192.168.31.100",
+                host='192.168.31.100',
                 port=6379
                 ) as connection:
             stored_kwargs = connection.get('kwargs')
@@ -25,5 +30,5 @@ def multiplier(number: int) -> int:
     return number * 2
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     print(multiplier(number=3))
