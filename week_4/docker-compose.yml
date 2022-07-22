@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  ylab_app:
+    image: wayfarer737/ylab:latest
+    container_name: ylab
+    restart: on-failure
+    ports:
+      - "8000:7500"
+
+networks:
+  default:
+    external:
+      name: elastic_net
+
