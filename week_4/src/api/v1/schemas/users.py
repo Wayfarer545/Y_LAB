@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Dict, Optional
 
@@ -38,7 +38,7 @@ class User(AccountInfo):
 
 class SignupRequest(BaseModel):
     username: str
-    email: str
+    email: EmailStr
     password: str
 
 
@@ -62,7 +62,7 @@ class RefreshResponse(LoginResponse):
 
 class UpdateRequest(BaseModel):
     username: Optional[str] = None
-    email: Optional[str] = None
+    email: Optional[EmailStr] = None
 
 
 class UpdateResponse(DefaultResponse):
