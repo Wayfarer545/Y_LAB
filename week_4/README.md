@@ -12,8 +12,7 @@
 - Docker
 - Docker-compose
 
-Для использования сервиса необходимо обозначить каталог монтирования  
-базы данных Postgres:
+Для использования сервиса необходимо обозначить каталог монтирования базы данных Postgres:
 ```bash
   ylab_postgres_db:
     container_name: ylab_postgres_db
