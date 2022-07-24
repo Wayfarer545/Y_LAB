@@ -6,6 +6,7 @@ from pathlib import Path
 VERSION: str = "1.0.0"
 
 load_dotenv()
+
 # JWT SETTINGS
 JWT_SECRET_KEY: str = os.getenv("JWT_SECRET_KEY")
 JWT_ALGORITHM: str = os.getenv("JWT_ALGORITHM")
