@@ -12,13 +12,14 @@
 - Docker
 - Docker-compose
 
-Для использования сервиса необходимо обозначить каталог монтирования базы данных Postgres:
+Для использования сервиса необходимо обозначить каталог монтирования базы данных Postgres  
+в файле docker-compose:
 ```bash
   ylab_postgres_db:
     container_name: ylab_postgres_db
     image: postgres:latest
     volumes:
-      - /mnt/small/share/cont/:/var/lib/postgresql/data/
+      - /path/to/db:/var/lib/postgresql/data/
 ```
 1. Клонировать репозиторий и перейти в корневой каталог задания
 ```bash
