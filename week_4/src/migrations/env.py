@@ -8,7 +8,7 @@ from sqlmodel import SQLModel
 from alembic import context
 
 from src.models import Post, Account
-from src.core import DATABASE_URL, PROJECT_NAME
+from src.core import DATABASE_URL
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
