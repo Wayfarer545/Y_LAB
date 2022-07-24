@@ -14,7 +14,7 @@
 
 Для использования сервиса необходимо обозначить каталог монтирования базы данных Postgres  
 в файле docker-compose:
-```bash
+```yaml
   ylab_postgres_db:
     container_name: ylab_postgres_db
     image: postgres:latest
