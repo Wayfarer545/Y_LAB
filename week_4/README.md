@@ -32,7 +32,8 @@ docker-compose up
 
 В случае использования скрипта вне контейнера Docker на базе ОС Windows, необходимо  
 внести изменения в файл alembic.ini секции script_location = src/migrations, 
-заменив на src\migrations.
+заменив на src\migrations.  
+
 ---
 
 
