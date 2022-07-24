@@ -1,3 +1,4 @@
+###Общие сведения
 Авторизация пользователей реализована с python-jose.  
 Типизация данных запросов/ответов сервера.
 
@@ -5,6 +6,22 @@
 
 Во время работы сервиса возникает единовременный не критический SAWarning из-за  
 использования execute метода sqlmodel.
+
+###Запуск:  
+
+Для использования сервиса необходимо обозначить каталог монтирования  
+базы данных Postgres:
+```bash
+  ylab_postgres_db:
+    container_name: ylab_postgres_db
+    image: postgres:latest
+    volumes:
+      - /mnt/small/share/cont/:/var/lib/postgresql/data/
+```
+В случае использования скрипта вне контейнера Docker на базе ОС Windows, необходимо  
+внести изменения в файл alembic.ini секции script_location = src/migrations, 
+заменив на src\migrations.
+---
 
 
 Основные изменения:

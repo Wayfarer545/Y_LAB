@@ -1,3 +1,4 @@
+import alembic
 import redis
 import uvicorn
 from fastapi import FastAPI
@@ -25,7 +26,6 @@ def root():
 @app.on_event("startup")
 def startup():
     """Подключаемся к базам при старте сервера"""
-    pool = redis.Redis()
     cache.active_tokens = redis_cache.UserCache(
         cache_instance=redis.Redis(
             db=2,

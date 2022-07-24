@@ -19,4 +19,5 @@ COPY . .
 
 # Запускаем проект
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
+CMD ["alembic", "upgrade", "head"]
 CMD ["python", "main.py"]

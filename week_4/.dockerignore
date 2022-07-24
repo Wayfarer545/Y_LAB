@@ -1,1 +1,4 @@
 /docker-compose.yml
+*README.md
+/.gitignore
+*__pycache__
