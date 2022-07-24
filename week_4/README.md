@@ -12,7 +12,11 @@
 - Docker
 - Docker-compose
 
-Для использования сервиса необходимо обозначить каталог монтирования базы данных Postgres  
+1. Клонировать репозиторий и перейти в корневой каталог задания
+```bash
+git clone https://github.com/Wayfarer545/Y_LAB/ && cd Y_LAB/week_4
+```
+2. Для использования сервиса необходимо обозначить каталог монтирования базы данных Postgres  
 в файле docker-compose:
 ```yaml
   ylab_postgres_db:
@@ -21,11 +25,7 @@
     volumes:
       - /path/to/db:/var/lib/postgresql/data/
 ```
-1. Клонировать репозиторий и перейти в корневой каталог задания
-```bash
-git clone https://github.com/Wayfarer545/Y_LAB/ && cd Y_LAB/week_4
-```
-2. Инициализировать сборку приложения и запуск зависимостей
+3. Инициализировать сборку приложения и запуск зависимостей
 ```bash
 docker-compose up
 ```
